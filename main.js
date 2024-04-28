@@ -64,6 +64,9 @@ console.log('Statement result copy (JSON):',
     ))
 );
 
+console.log("Read parquet");
+const stmt3 = await conn.query(`SELECT label FROM read_parquet('https://huggingface.co/datasets/amazon_polarity/resolve/refs%2Fconvert%2Fparquet/amazon_polarity/train/0002.parquet')`);
+
 // Closing everything
 await conn.close();
 await db.terminate();
